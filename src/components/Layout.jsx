@@ -4,14 +4,15 @@ export default function  Layout(props){
     
     function numSetter(num){
         props.setVariable(oldVariable=>{
-            if(oldVariable===props.answer){
-                props.setAnswer(num)
-                return num
-            }
+
             if(props.operation){
                 const temp=props.operation(Number(oldVariable),Number(num))
                 props.setAnswer(temp)
                 console.log(props.answer)
+                return num
+            }
+            if(oldVariable===props.answer){
+                props.setAnswer(num)
                 return num
             }
             else if(oldVariable){
